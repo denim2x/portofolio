@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns:fx="http://javafx.com/fxml">
+  <children>
+    <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="root">
+      <bottom>
+        <StackPane>
+          <children>
+            <Rectangle fill="linear-gradient(from 0.0% 0.0% to 0.0% 100.0%, 0xddddddff 0.0%, 0x999999ff 100.0%)" height="35.0" stroke="linear-gradient(from 0.0% 0.0% to 0.0% 100.0%, 0xecececff 0.0%, 0x666666ff 100.0%)" strokeType="INSIDE" width="542.0">
+              <effect>
+                <DropShadow height="5.0" offsetY="2.0" radius="2.0" width="5.0">
+                  <color>
+                    <Color blue="0.000" green="0.000" opacity="0.451" red="0.000" fx:id="x1" />
+                  </color>
+                </DropShadow>
+              </effect>
+            </Rectangle>
+            <BorderPane style="&#10;">
+              <center>
+                <Slider fx:id="sZoom" blockIncrement="5.0" majorTickUnit="30.0" max="300.0" min="1.0" value="5.0" />
+              </center>
+              <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+              </padding>
+              <right>
+                <StackPane BorderPane.alignment="CENTER_LEFT">
+                  <children>
+                    <HBox spacing="-2.0">
+                      <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="linear-gradient(from 0.0% 0.0% to 0.0% 100.0%, 0xc8c8c8ff 0.0%, 0xeeeeeeff 100.0%)" height="25.0" stroke="linear-gradient(from 0.0% 0.0% to 0.0% 100.0%, 0x888888ff 0.0%, 0x666666ff 100.0%)" strokeType="INSIDE" width="38.0" />
+                        <Rectangle arcHeight="7.0" arcWidth="7.0" fill="linear-gradient(from 0.0% 0.0% to 0.0% 100.0%, 0xecececff 0.0%, 0x8e8e8eff 100.0%)" height="25.0" stroke="linear-gradient(from 0.0% 0.0% to 0.0% 100.0%, 0x888888ff 0.0%, 0x4e4e4eff 100.0%)" strokeType="INSIDE" width="19.0">
+                          <effect>
+                            <DropShadow blurType="GAUSSIAN" height="7.0" offsetX="0.5" offsetY="1.0" radius="3.0" width="7.0">
+                              <color>
+                                <Color blue="0.000" green="0.000" opacity="0.349" red="0.000" fx:id="x2" />
+                              </color>
+                            </DropShadow>
+                          </effect>
+                        </Rectangle>
+                      </children>
+                    </HBox>
+                    <HBox spacing="-2.0">
+                      <children>
+                        <TextField fx:id="tZoom" alignment="CENTER_RIGHT" maxWidth="-Infinity" prefHeight="25.0" prefWidth="38.0" text="5">
+                          <effect>
+                            <DropShadow blurType="GAUSSIAN" height="11.0" radius="5.0" spread="0.7" width="11.0">
+                              <color>
+                                <Color blue="1.000" green="1.000" opacity="0.592" red="1.000" fx:id="x3" />
+                              </color>
+                            </DropShadow>
+                          </effect>
+                        </TextField>
+                        <ChoiceBox fx:id="cZoom" maxWidth="-Infinity" minWidth="19.0" prefHeight="25.0" prefWidth="19.0">
+                          <items>
+                            <FXCollections fx:factory="observableArrayList">
+                              <String fx:value="Item 1" />
+                              <String fx:value="Item 2" />
+                              <String fx:value="Item 3" />
+                            </FXCollections>
+                          </items>
+                        </ChoiceBox>
+                      </children>
+                    </HBox>
+                  </children>
+                </StackPane>
+              </right>
+            </BorderPane>
+          </children>
+        </StackPane>
+      </bottom>
+      <center>
+        <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="315.0" prefWidth="542.0" style="-fx-background-color: linear-gradient(&#10;to bottom, #F8F8F8, #D3D3D3);">
+          <children>
+            <StackPane fx:id="canvas" style="-fx-background-color: transparent;" StackPane.alignment="CENTER">
+              <children>
+                <Path fx:id="grid" StackPane.alignment="TOP_LEFT" />
+                <Path fx:id="main" StackPane.alignment="TOP_LEFT" />
+                <Path fx:id="ticks" StackPane.alignment="TOP_LEFT" />
+                <Path fx:id="graph" StackPane.alignment="TOP_LEFT" />
+              </children>
+            </StackPane>
+            <Pane fx:id="overlay" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: transparent;" StackPane.alignment="TOP_LEFT" />
+          </children>
+          <padding>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+          </padding>
+        </StackPane>
+      </center>
+      <top>
+        <StackPane>
+          <children>
+            <Rectangle fill="linear-gradient(from 0.0% 0.0% to 0.0% 100.0%, 0xddddddff 0.0%, 0x999999ff 100.0%)" height="35.0" stroke="linear-gradient(from 0.0% 0.0% to 0.0% 100.0%, 0xecececff 0.0%, 0x666666ff 100.0%)" strokeType="INSIDE" width="542.0">
+              <effect>
+                <DropShadow color="$x1" height="5.0" offsetY="2.0" radius="2.0" width="5.0" />
+              </effect>
+            </Rectangle>
+            <BorderPane style="&#10;">
+              <center>
+                <StackPane prefHeight="25.0">
+                  <children>
+                    <Rectangle fx:id="rInput" arcHeight="5.0" arcWidth="5.0" fill="linear-gradient(from 0.0% 0.0% to 0.0% 100.0%, 0xc8c8c8ff 0.0%, 0xeeeeeeff 100.0%)" height="25.0" stroke="linear-gradient(from 0.0% 0.0% to 0.0% 100.0%, 0x888888ff 0.0%, 0x666666ff 100.0%)" strokeType="INSIDE" width="472.0" />
+                    <TextField fx:id="tInput" prefHeight="25.0" promptText="Polynomial function (e.g. 5x^2+3x^+1)">
+                      <effect>
+                        <DropShadow blurType="GAUSSIAN" color="$x3" height="11.0" radius="5.0" spread="0.7" width="11.0" />
+                      </effect>
+                    </TextField>
+                  </children>
+                </StackPane>
+              </center>
+              <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+              </padding>
+              <right>
+                <StackPane>
+                  <children>
+                    <Rectangle arcHeight="7.0" arcWidth="7.0" fill="linear-gradient(from 0.0% 0.0% to 0.0% 100.0%, 0xecececff 0.0%, 0x8e8e8eff 100.0%)" height="25.0" stroke="linear-gradient(from 0.0% 0.0% to 0.0% 100.0%, 0x888888ff 0.0%, 0x4e4e4eff 100.0%)" strokeType="INSIDE" width="55.0" StackPane.alignment="CENTER_RIGHT">
+                      <effect>
+                        <DropShadow blurType="GAUSSIAN" color="$x2" height="7.0" offsetX="0.5" offsetY="1.0" radius="3.0" width="7.0" />
+                      </effect>
+                    </Rectangle>
+                    <Button fx:id="bPlot" contentDisplay="CENTER" mnemonicParsing="false" text="Plot" textAlignment="CENTER" StackPane.alignment="CENTER_RIGHT">
+                      <effect>
+                        <DropShadow blurType="GAUSSIAN" color="#00000035" height="38.890625" offsetY="6.0" radius="19.055989583333336" width="39.333333333333336">
+                          <input>
+                            <DropShadow blurType="GAUSSIAN" color="#ffffff51" height="11.0" radius="5.0" spread="0.7222222222222221" width="11.0" />
+                          </input>
+                        </DropShadow>
+                      </effect>
+                      <StackPane.margin>
+                        <Insets left="5.0" />
+                      </StackPane.margin>
+                    </Button>
+                  </children>
+                </StackPane>
+              </right>
+            </BorderPane>
+          </children>
+        </StackPane>
+      </top>
+    </BorderPane>
+  </children>
+  <stylesheets>
+    <URL value="@main.css" />
+  </stylesheets>
+</StackPane>

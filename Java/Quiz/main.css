@@ -1,0 +1,13 @@
+.header{
+	-fx-background-color: linear-gradient(to bottom, #AAA, #EEE );
+}
+
+.text-border{
+	-fx-border-width: 1;
+	-fx-border-color: black;
+	-fx-border-style: solid;
+}
+
+.button {
+	-fx-background-color: transparent;
+}

@@ -1,0 +1,20 @@
+.button, .text-field {
+	-fx-font-family: "DejaVu Sans";
+}
+
+.button {
+	-fx-font-size: 15.0pt;
+}
+
+.text-field {
+	-fx-font-size: 14.0pt;
+	-fx-prompt-text-fill: #888;
+}
+
+.toolbar {
+	-fx-background-color: linear-gradient(to bottom, #DDD, #999);
+}
+
+.button, .text-field, .choice-box {
+	-fx-background-color: transparent;
+}
